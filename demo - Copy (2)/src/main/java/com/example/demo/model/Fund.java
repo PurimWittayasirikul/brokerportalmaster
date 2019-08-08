@@ -2,16 +2,18 @@ package com.example.demo.model;
 
 public class Fund {
 
-    private String fundName,id;
-    private int rate = -1;
+    private String fundName,id,funDetail;
+    private int rate = -1,risk;
     private int percent;
 
 
-    public Fund(String id, String fundName, int rate, int percent) {
+    public Fund(String id, String fundName, String funDetail, int risk, int rate, int percent) {
         this.id = id;
         this.fundName = fundName;
         this.rate = rate;
         this.percent = percent;
+        this.funDetail = funDetail;
+        this.risk = risk;
     }
 
     public void setFundName(String fundName) {
@@ -44,5 +46,16 @@ public class Fund {
 
     public int getPercent() {
         return percent;
+    }
+    public String getFunDetail() {
+        return funDetail;
+    }
+
+    public int getRisk() {
+        return risk;
+    }
+
+    public void setRisk(int risk) {
+        this.risk = risk;
     }
 }

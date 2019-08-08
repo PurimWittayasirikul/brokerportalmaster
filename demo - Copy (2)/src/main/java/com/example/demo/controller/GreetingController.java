@@ -4,6 +4,7 @@ import com.example.demo.model.ClientInfo;
 import com.example.demo.model.Fund;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -17,14 +18,19 @@ public class GreetingController {
     private final AtomicLong counter = new AtomicLong();
     private List<ClientInfo> clientInfoList = new ArrayList<ClientInfo>(){
         {
-            add(new ClientInfo("123","purim","witt",new ArrayList<Fund>(){
-                {
-                    add(new Fund("01","fund1",5,50));
-                    add(new Fund("02","fund2",4,80));
-                }
-            }));
-            add(new ClientInfo("124","beaver","woo"));
-            add(new ClientInfo("125","bike","lol"));
+            try {
+                add(new ClientInfo("123","purim","witt","men","01/05/1997",new ArrayList<Fund>(){
+                    {
+                        add(new Fund("01","fund1","detail1",1,5,50));
+                        add(new Fund("02","fund2","detail2",3,4,80));
+                    }
+                }));
+            add(new ClientInfo("124","beaver","woo","women","02/04/2000"));
+            add(new ClientInfo("125","bike","lol","men","07/12/2001"));
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         }
     };
 
