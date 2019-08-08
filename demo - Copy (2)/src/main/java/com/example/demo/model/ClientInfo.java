@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,12 +16,22 @@ public class ClientInfo {
 
     private String firstName,lastName,gender;
     private Date dateBirth;
+    private String datepattern  =  "dd/MM/yyyy";
+    private DateFormat df = new SimpleDateFormat(datepattern);
     private List<Fund> funds = new ArrayList<Fund>();
 
+    public ClientInfo() {
+    }
 
+    public ClientInfo(String id, String firstName, String lastName, String gender){
+        this.gender = gender;
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
     public ClientInfo(String id, String firstName, String lastName, String gender, String dateBirth) throws ParseException {
         this.gender = gender;
-        this.dateBirth = new SimpleDateFormat("dd/MM/yyyy").parse(dateBirth);
+        this.dateBirth = new SimpleDateFormat(datepattern).parse(dateBirth);
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -32,7 +43,7 @@ public class ClientInfo {
         this.lastName = lastName;
         this.funds = funds ;
         this.gender = gender;
-        this.dateBirth = new SimpleDateFormat("dd/MM/yyyy").parse(dateBirth);
+        this.dateBirth = new SimpleDateFormat(datepattern).parse(dateBirth);
     }
 
     public void addFund(Fund fund){
@@ -89,7 +100,8 @@ public class ClientInfo {
         return gender;
     }
 
-    public Date getDateBirth() {
-        return dateBirth;
-    }
+//    public String  getDateBirth() {
+//
+//        return  df.format(dateBirth);
+//    }
 }
