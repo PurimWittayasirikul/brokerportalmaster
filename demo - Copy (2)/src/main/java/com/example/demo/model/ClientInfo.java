@@ -1,6 +1,6 @@
 package com.example.demo.model;
 
-import org.springframework.data.annotation.Id;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ClientInfo {
 
-    @Id
+
     private String id;
 
     private String firstName,lastName,gender;
