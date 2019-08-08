@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.*;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
-@RequestMapping("/greet")
+@RequestMapping("/ClientInfo")
 @RestController
 public class GreetingController {
 
@@ -53,6 +54,13 @@ public class GreetingController {
         clientInfoList.add(clientInfo);
         return clientInfoList;
     }
+
+
+//    @DeleteMapping
+//    public List<ClientInfo> deleteClientInfo(@RequestParam(value="CliId", defaultValue="0") int id){
+//        clientInfoList.remove(id);
+//        return clientInfoList;
+//    }
 //    @GetMapping("/o/{id}")
 //    public String a(@PathVariable int id){
 //
