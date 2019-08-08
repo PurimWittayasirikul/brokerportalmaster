@@ -48,7 +48,7 @@ public class GreetingController {
 
 
 
-    @PostMapping(value = "/addNewClientInfo", consumes = "application/json", produces = "application/json")
+    @PostMapping
     public List<ClientInfo> addNewClientInfo(@RequestBody ClientInfo clientInfo){
         clientInfoList.add(clientInfo);
         return clientInfoList;
